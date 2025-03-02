@@ -16,11 +16,14 @@ app.use(express.json());
 // Middleware to handle CORS
 app.use(cors());
 
+// Middleware to parse cookies
+app.use(cookieParser());
+
 // Route for authentication
 app.use("/api/v2/auth", authRoutes);
 
-//Adding Cookie Pareser
-app.use(cookieParser());
+// Route for user-related operations
+app.use("/api/v2/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

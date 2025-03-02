@@ -91,7 +91,7 @@ export const login = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
     });
 
-    res.json({ message: "Logged in successfully" });
+    res.json({ message: "Logged in successfully", token: token });
   } catch (error) {
     console.error("Error in login controller:", error);
     res.status(500).json({ message: "Server error" });

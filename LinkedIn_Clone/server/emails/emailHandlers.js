@@ -73,6 +73,7 @@ export const sendCommentNotificationEmail = async (
         postUrl,
         commentContent
       ),
+      category: "comment-notification",
     });
 
     console.log("✅ Comment notification email sent successfully:", response);

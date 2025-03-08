@@ -1,4 +1,7 @@
+// Desc: User controller functions
+
 import User from "../models/user.model.js";
+import cloudinary from "../lib/cloudinary.js";
 
 export const getSuggestedConnections = async (req, res) => {
   try {
@@ -47,10 +50,21 @@ export const updateProfile = async (req, res) => {
     ];
 
     const updateData = {};
+
     for (const field of allowedFields) {
       if (req.body[field]) {
         updateData[field] = req.body[field];
       }
+    }
+    //Test Image upload
+    if (req.body.profilePicture) {
+      const result = await cloudinary.uploader.upload(req.body.profilePicture);
+      updateData.profilePicture = result.secure_url;
+    }
+
+    if (req.body.bannerImg) {
+      const result = await cloudinary.uploader.upload(req.body.bannerImg);
+      updateData.bannerImg = result.secure_url;
     }
 
     // Log the update data for debugging

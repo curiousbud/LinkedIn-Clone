@@ -1,4 +1,4 @@
-//TODO: Find alternative for mailtrap
+
 export function createWelcomeEmailTemplate(name, profileUrl) {
   return `
   <!DOCTYPE html>

@@ -18,7 +18,12 @@ const PORT = process.env.PORT;
 app.use(express.json({ limit: "5mb" }));
 
 // Middleware to handle CORS
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 
 // Middleware to parse cookies
 app.use(cookieParser());
@@ -33,7 +38,7 @@ app.use("/api/v2/users", userRoutes);
 app.use("/api/v2/posts", postRoutes);
 
 // Route for notification-related operations
-app.use("/api/v2/notification", notificationRoutes);
+app.use("/api/v2/notifications", notificationRoutes);
 
 // Route for connection-related operations
 app.use("/api/v2/connections", connectionRoutes);

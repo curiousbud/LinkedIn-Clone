@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from './Navbar.jsx'
 
 const Layout = ({children}) => {
   return (
     <div className='min-h-screen bg-base-100'>
       <Navbar />
-      <main className="border-2 border-dashed border-blue-500">
-  Hello
-</main>
+      <main className='max-w-7xl mx-auto px-4  py-6'>
+        {children}
+      </main>
     </div>
   )
 }

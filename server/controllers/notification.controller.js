@@ -1,3 +1,5 @@
+import Notification from "../models/notification.model.js"; // Import the Notification model
+
 export const getUserNotifications = async (req, res) => {
   try {
     const notifications = await Notification.find({
@@ -16,11 +18,12 @@ export const getUserNotifications = async (req, res) => {
 export const markNotificationsAsRead = async (req, res) => {
   try {
     const notificationId = req.params.id;
-    const notification = await Notification.findByIdUpdate(
+    const notification = await Notification.findByIdAndUpdate(
       { _id: notificationId },
       { read: true },
       { new: true }
     );
+    res.status(200).json(notification);
   } catch (error) {
     console.error("Error in markNotificationsAsRead controller:", error);
     res.status(500).json({ message: "Server error" });
@@ -29,7 +32,7 @@ export const markNotificationsAsRead = async (req, res) => {
 
 export const deleteNotification = async (req, res) => {
   try {
-    await notification.findByIdAndDelete({
+    await Notification.findByIdAndDelete({
       _id: req.params.id,
       recipient: req.user._id,
     });

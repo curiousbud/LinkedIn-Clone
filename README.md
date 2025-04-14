@@ -153,7 +153,7 @@ Distributed under the [MIT](LICENSE). See the LICENSE file for more details.
 
 ## Contact
 For any questions or feedback, please reach out:
-GitHub: [curiousbud]([curiousbud (Khan Areeb Khalid)](https://github.com/curiousbud)).
+GitHub: [curiousbud](https://github.com/curiousbud).
 
 Email: akareeb6622gmail.com
 

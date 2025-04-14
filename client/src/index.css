@@ -1,2 +1,62 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+/* Your custom layers */
+@layer base {
+    :root {
+      --primary: #0A66C2;
+      --secondary: #FFFFFF;
+      --accent: #7FC15E;
+      --neutral: #000000;
+      --base-100: #F3F2EF;
+      --info: #5E5E5E;
+      --success: #057642;
+      --warning: #F5C75D;
+      --error: #CC1016;
+    }
+  
+    body {
+      color: var(--neutral);
+    }
+  }
+  
+  @layer utilities {
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--secondary);
+    }
+  
+    .bg-base-100 {
+      background-color: var(--base-100);
+    }
+  
+    .text-info {
+      color: var(--info);
+    }
+  
+    .text-success {
+      color: var(--success);
+    }
+  
+    .text-warning {
+      color: var(--warning);
+    }
+  
+    .text-error {
+      color: var(--error);
+    }
+  
+    .input-primary {
+      background-color: var(--secondary);
+      color: var(--neutral);
+      border: 1px solid var(--info);
+    }
+  
+    .input-primary:focus {
+      background-color: var(--base-100);
+      color: #000;
+      outline: none;
+    }
+  }
